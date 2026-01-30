@@ -25,28 +25,35 @@ html, body {
     display: flex;
     width: 300vw;
     height: 100vh;
-    transition: transform 0.6s ease;
+    transition: transform 0.7s ease;
 }
 
 .slide {
     width: 100vw;
     height: 100vh;
     position: relative;
+    background-size: cover;
+    background-position: center;
+    animation: zoomBg 10s ease-in-out infinite;
 }
 
-/* VIDEO BACKGROUND */
-video {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* GANTI LINK GAMBAR DI SINI */
+.slide1 { background-image: url('bg.jpg'); }
+.slide2 { background-image: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70'); }
+.slide3 { background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9'); }
+
+/* MOTION BACKGROUND */
+@keyframes zoomBg {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 /* OVERLAY */
 .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.35);
+    background: rgba(0,0,0,0.4);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -59,11 +66,13 @@ video {
 .overlay h1 {
     font-size: 32px;
     letter-spacing: 2px;
+    animation: fadeUp 1.2s ease both;
 }
 
 .overlay p {
     margin-top: 10px;
     font-size: 16px;
+    animation: fadeUp 1.5s ease both;
 }
 
 .btn {
@@ -74,6 +83,13 @@ video {
     color: #000;
     text-decoration: none;
     font-weight: 600;
+    animation: fadeUp 1.8s ease both;
+}
+
+/* TEXT MOTION */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* INDICATOR */
@@ -82,7 +98,7 @@ video {
     bottom: 20px;
     width: 100%;
     text-align: center;
-    color: #aaa;
+    color: #ccc;
     font-size: 12px;
 }
 </style>
@@ -92,33 +108,21 @@ video {
 
 <div class="slider" id="slider">
 
-    <!-- SLIDE 1 -->
-    <div class="slide">
-        <video autoplay muted loop playsinline>
-            <source src="bg.jpg" type="gambar/jpg">
-        </video>
+    <div class="slide slide1">
         <div class="overlay">
             <h1>Efin & Clay</h1>
             <p>Kami Mengundang Anda</p>
         </div>
     </div>
 
-    <!-- SLIDE 2 -->
-    <div class="slide">
-        <img autoplay muted loop playsinline>
-            <source src="video.mp4" type="video/mp4">
-        </img>
+    <div class="slide slide2">
         <div class="overlay">
-            <h1>30 Juli 2026</h1>
-            <p>Gedung Serbaguna</p>
+            <h1>Mulud</h1>
+            <p>Curahjati/p>
         </div>
     </div>
 
-    <!-- SLIDE 3 -->
-    <div class="slide">
-        <video autoplay muted loop playsinline>
-            <source src="video.mp4" type="video/mp4">
-        </video>
+    <div class="slide slide3">
         <div class="overlay">
             <h1>Save The Date</h1>
             <a href="#" class="btn">Buka Undangan</a>
@@ -127,23 +131,44 @@ video {
 
 </div>
 
-<div class="indicator">Geser ke samping ➜</div>
+<div class="indicator">Geser ➜</div>
 
 <script>
 let slider = document.getElementById('slider');
 let index = 0;
 let startX = 0;
+const totalSlide = 3;
+let autoPlay;
+
+function updateSlide() {
+    slider.style.transform = `translateX(-${index * 100}vw)`;
+}
+
+function startAutoPlay() {
+    autoPlay = setInterval(() => {
+        index = (index + 1) % totalSlide;
+        updateSlide();
+    }, 4000);
+}
+
+function stopAutoPlay() {
+    clearInterval(autoPlay);
+}
 
 document.addEventListener('touchstart', e => {
     startX = e.touches[0].clientX;
+    stopAutoPlay();
 });
 
 document.addEventListener('touchend', e => {
     let endX = e.changedTouches[0].clientX;
-    if (startX - endX > 50 && index < 2) index++;
+    if (startX - endX > 50 && index < totalSlide - 1) index++;
     if (endX - startX > 50 && index > 0) index--;
-    slider.style.transform = `translateX(-${index * 100}vw)`;
+    updateSlide();
+    startAutoPlay();
 });
+
+startAutoPlay();
 </script>
 
 </body>
