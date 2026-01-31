@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Undangan Pernikahan Efin & Clay</title>
 
-<!-- GOOGLE FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -20,105 +19,80 @@ body{
   background:var(--bg);
   color:#3a2a2a;
 }
-section{
-  padding:50px 20px;
-  text-align:center;
-}
-h1,h2{
-  font-family:'Great Vibes', cursive;
-  color:var(--primary);
-}
-h1{font-size:52px;margin:0}
-h2{font-size:38px;margin-bottom:10px}
+section{padding:60px 20px;text-align:center}
+h1,h2{font-family:'Great Vibes', cursive;color:var(--primary)}
+h1{font-size:52px}
+h2{font-size:40px}
 p{line-height:1.8}
 
 /* COVER */
 .cover{
-  height:100vh;
+  min-height:100vh;
+  background:linear-gradient(rgba(246,239,232,.9),rgba(246,239,232,.9)),
+  url('https://i.imgur.com/QcZ6H3K.jpg') center/cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.cover-box{
+  background:rgba(255,255,255,.7);
+  border:3px solid var(--primary);
+  border-radius:60% 60% 40% 40%;
+  padding:50px 35px;
+}
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 30px;
+  background:var(--primary);
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+}
+.cover{
+  min-height:100vh;
   background:
-    linear-gradient(rgba(246,239,232,0.85), rgba(246,239,232,0.85)),
-    url('bg.jpg');
+    linear-gradient(rgba(246,239,232,.93),rgba(246,239,232,.93)),
+    url('Cover.jpg');
   background-size:cover;
   background-position:center;
   display:flex;
   justify-content:center;
   align-items:center;
 }
-.frame{
-  border:3px solid var(--primary);
-  border-radius:60% 60% 40% 40%;
-  padding:45px 30px;
-  max-width:340px;
-  background:rgba(255,255,255,0.65);
+.cover-layer{position:relative;max-width:420px;width:100%}
+.cover-title h3{letter-spacing:4px;margin:0}
+.cover-title p{font-size:14px;letter-spacing:2px}
+
+.cover-frame{
+  width:260px;height:330px;margin:20px auto;
+  padding:14px;
+  background:url('') no-repeat center/contain;
+  display:flex;justify-content:center;align-items:center;
 }
-.cover p{
-  letter-spacing:2px;
-  font-size:14px;
-  text-transform:uppercase;
-}
-.cover h1{
-  font-size:56px;
-  text-shadow:2px 2px 8px rgba(0,0,0,.15);
-}
-.cover .tanggal{
-  font-size:18px;
-  margin-top:10px;
-  color:#5a3d49;
-}
-.btn{
+.cover-frame img{width:85%;height:85%;object-fit:cover;border-radius:12px}
+
+.cover-name{font-size:50px;line-height:1.2}
+.btn-cover{
+  display:inline-block;
+  padding:14px 30px;
   background:var(--primary);
   color:#fff;
-  padding:14px 26px;
   border-radius:30px;
   text-decoration:none;
-  display:inline-block;
-  margin-top:25px;
 }
 
 /* CARD */
 .card{
   background:#fff;
-  border-radius:20px;
-  padding:30px;
-  margin:20px auto;
   max-width:500px;
+  margin:20px auto;
+  padding:30px;
+  border-radius:20px;
   box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
-/* COUNTDOWN */
-.countdown{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-}
-.time{
-  background:var(--primary);
-  color:#fff;
-  padding:12px;
-  border-radius:12px;
-  min-width:70px;
-}
-
-/* FLOAT MENU */
-.menu{
-  position:fixed;
-  bottom:15px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#fff;
-  display:flex;
-  gap:12px;
-  padding:10px 18px;
-  border-radius:30px;
-  box-shadow:0 5px 20px rgba(0,0,0,.15);
-}
-.menu a{
-  text-decoration:none;
-  color:var(--primary);
-  font-size:14px;
-}
-
-/* FOTO MEMPELAI */
+/* MEMPELAI */
 .foto-wrap{
   display:flex;
   justify-content:center;
@@ -131,11 +105,9 @@ p{line-height:1.8}
   height:210px;
   padding:10px;
   border-radius:50% 50% 45% 45%;
-  background:
-    linear-gradient(#f6efe8,#f6efe8) padding-box,
-    linear-gradient(145deg,#6b4a5a,#b08a9b) border-box;
+  background:linear-gradient(#f6efe8,#f6efe8) padding-box,
+  linear-gradient(145deg,#6b4a5a,#b08a9b) border-box;
   border:4px solid transparent;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 .foto-frame img{
   width:100%;
@@ -143,17 +115,20 @@ p{line-height:1.8}
   object-fit:cover;
   border-radius:50% 50% 45% 45%;
 }
-.nama-foto{
-  margin-top:10px;
-  font-weight:600;
-  color:#6b4a5a;
-}
 
-/* ORNAMEN WAYANG */
-.wayang{
-  width:60px;
-  margin:10px auto 0 auto;
-  display:block;
+/* COUNTDOWN */
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:15px;
+}
+.cd-box{
+  background:var(--primary);
+  color:#fff;
+  padding:12px;
+  border-radius:12px;
+  min-width:70px;
 }
 
 /* GALLERY */
@@ -162,7 +137,6 @@ p{line-height:1.8}
   flex-wrap:wrap;
   justify-content:center;
   gap:15px;
-  margin-top:30px;
 }
 .gallery img{
   width:150px;
@@ -170,145 +144,149 @@ p{line-height:1.8}
   object-fit:cover;
   border-radius:12px;
   box-shadow:0 5px 15px rgba(0,0,0,.1);
-  cursor:pointer;
-  transition:0.3s;
-}
-.gallery img:hover{
-  transform:scale(1.05);
 }
 
-/* FORM UCAPAN */
+/* FORM */
 form{
   max-width:500px;
   margin:0 auto;
-  text-align:left;
   background:#fff;
   padding:25px;
   border-radius:15px;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
-form label{
-  display:block;
-  margin-top:15px;
-  font-weight:600;
-  color:#6b4a5a;
-}
-form input, form textarea{
+form input,form textarea{
   width:100%;
   padding:10px;
-  margin-top:5px;
+  margin-top:10px;
   border-radius:8px;
   border:1px solid #ccc;
-  resize:none;
 }
 form button{
   margin-top:15px;
-  padding:12px 20px;
+  padding:12px 25px;
   background:var(--primary);
   color:#fff;
   border:none;
   border-radius:25px;
-  cursor:pointer;
-}
-form button:hover{
-  opacity:0.9;
 }
 
-/* LIST UCAPAN */
+/* UCAPAN */
 .ucapan-list{
   max-width:500px;
-  margin:20px auto 0 auto;
+  margin:20px auto;
   text-align:left;
 }
 .ucapan-item{
   background:#fff;
-  padding:12px 15px;
+  padding:12px;
   border-radius:12px;
   margin-bottom:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
-.ucapan-item b{
-  color:#6b4a5a;
+
+/* MENU */
+.menu{
+  position:fixed;
+  bottom:15px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#fff;
+  padding:10px 20px;
+  border-radius:30px;
+  display:flex;
+  gap:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
+.menu a{text-decoration:none;color:var(--primary)}
 </style>
 </head>
 
 <body>
 
-<!-- MUSIK -->
 <audio id="musik" loop>
-  <source src="https://cdn.pixabay.com/audio/2023/03/06/audio_8c96b60c77.mp3" type="audio/mpeg">
+<source src="https://cdn.pixabay.com/audio/2023/03/06/audio_8c96b60c77.mp3">
 </audio>
 
-<!-- HOME -->
+<!-- COVER -->
 <section class="cover" id="home">
-  <div class="frame">
-    <p>Undangan Pernikahan</p>
-    <h1>Efin & Clay</h1>
-    <p class="tanggal">Mulud · Senin</p>
-    <a href="#acara" class="btn" onclick="playMusic()">Buka Undangan</a>
+  <div class="cover-layer">
+    <div class="cover-title">
+      <h3>EC</h3>
+    </div>
+    <div class="cover-frame">
+      <img src="2.jpg">
+    </div>
+    <h1 class="cover-name">Efin<br>&<br>Clay</h1>
+    <a href="#acara" class="btn-cover" onclick="musik.play()">Buka Undangan</a>
   </div>
 </section>
 
+
 <!-- MEMPELAI -->
-<section>
-  <h2>Mempelai</h2>
-  <div class="foto-wrap">
-    <div>
-      <div class="foto-frame"><img src="efin.jpg" alt="Efin"></div>
-      <div class="nama-foto">Efin</div>
-      <small>Putra dari keluarga tercinta</small>
-      <img src="https://i.imgur.com/XbN6vLb.png" alt="Wayang Efin" class="wayang">
+<section id="mempelai">
+<h2>Mempelai</h2>
+<div class="foto-wrap">
+  <div>
+    <div class="foto-frame">
+      <img src="Efin.jpg">
     </div>
-    <div>
-      <div class="foto-frame"><img src="clay.jpg" alt="Clay"></div>
-      <div class="nama-foto">Clay</div>
-      <small>Putri dari keluarga tercinta</small>
-      <img src="https://i.imgur.com/XbN6vLb.png" alt="Wayang Clay" class="wayang">
-    </div>
+    <b>Efin</b>
+    <p>Putra dari keluarga tercinta</p>
+    <hr>
   </div>
+  <div>
+    <div class="foto-frame">
+      <img src="Clay.jpg">
+    </div>
+    <b>Clay</b>
+    <p>Putri dari keluarga tercinta</p>
+    <hr>
+  </div>
+</div>
 </section>
 
 <!-- ACARA -->
 <section id="acara">
-  <h2>Acara Pernikahan</h2>
-  <div class="card">
-    <h3>Akad</h3>
-    <p>Hari : Selasa</p>
-    <p>Jam  : 00</p>
-    <p>Tempat : Curahjati</p>
-  </div>
-  <div class="card">
-    <h3>Resepsi</h3>
-    <p>Hari : ha</p>
-    <p>Jam  : 1</p>
-    <p>Tempat : Muncar</p>
-  </div>
+<h2>Acara Pernikahan</h2>
+
+<div class="card">
+<h3>Akad Nikah</h3>
+<p>Selasa, 30 Juli 2026</p>
+<p><b>08.00 WIB</b></p>
+
+<div class="countdown">
+<div class="cd-box"><span id="d">0</span><br>Hari</div>
+<div class="cd-box"><span id="h">0</span><br>Jam</div>
+<div class="cd-box"><span id="m">0</span><br>Menit</div>
+<div class="cd-box"><span id="s">0</span><br>Detik</div>
+</div>
+</div>
+
+<div class="card">
+<h3>Resepsi</h3>
+<p>Selasa, 30 Juli 2026</p>
+<p><b>13.00 – 17.00 WIB</b></p>
+</div>
 </section>
 
-<!-- COUNTDOWN -->
+<!-- MAPS -->
 <section>
-  <h2>Menuju Hari Bahagia</h2>
-  <div class="countdown">
-    <div class="time"><span id="d">0</span><br>Hari</div>
-    <div class="time"><span id="h">0</span><br>Jam</div>
-    <div class="time"><span id="m">0</span><br>Menit</div>
-    <div class="time"><span id="s">0</span><br>Detik</div>
-  </div>
+<h2>Lokasi</h2>
+<div class="card">
+<iframe 
+src="https://www.google.com/maps?q=Muncar,Banyuwangi&output=embed"
+width="100%" height="300" style="border:0;border-radius:15px"></iframe>
+</div>
 </section>
 
 <!-- GALLERY -->
 <section>
-  <h2>Galeri Foto</h2>
-  <div class="gallery">
-    <img src="https://i.imgur.com/1.jpg" alt="Foto1">
-    <img src="https://i.imgur.com/2.jpg" alt="Foto2">
-    <img src="https://i.imgur.com/3.jpg" alt="Foto3">
-    <img src="https://i.imgur.com/4.jpg" alt="Foto4">
-  </div>
+<h2>Galeri</h2>
+<div class="gallery">
+<img src="1.jpg">
+<img src="4.jpg">
+<img src="3.jpg">
+</div>
 </section>
-
-<!-- WEDDING GIFT -->
 <section>
   <h2>Wedding Gift</h2>
   <div class="card">
@@ -317,23 +295,17 @@ form button:hover{
     <p><b>(belum diisi)</b></p>
   </div>
 </section>
-
-<!-- FORM UCAPAN -->
+<!-- UCAPAN -->
 <section>
-  <h2>Ucapan & RSVP</h2>
-  <form onsubmit="submitForm(event)">
-    <label>Nama</label>
-    <input type="text" id="nama" placeholder="Masukkan nama" required>
-    <label>Ucapan / Doa</label>
-    <textarea id="ucapan" placeholder="Masukkan ucapan Anda" rows="4" required></textarea>
-    <button type="submit">Kirim</button>
-  </form>
+<h2>Ucapan</h2>
+<form onsubmit="kirimUcapan(event)">
+<input id="nama" placeholder="Nama" required>
+<textarea id="ucapan" placeholder="Ucapan" required></textarea>
+<button>Kirim</button>
+</form>
 
-  <div class="ucapan-list" id="ucapanList">
-    <!-- Ucapan muncul di sini -->
-  </div>
+<div class="ucapan-list" id="list"></div>
 </section>
-
 <!-- PENUTUP -->
 <section>
   <h2>Terima Kasih</h2>
@@ -344,51 +316,38 @@ form button:hover{
 
 <!-- MENU -->
 <div class="menu">
-  <a href="#home">Home</a>
-  <a href="#acara">Acara</a>
-  <a href="#" onclick="toggleMusic()">🎵</a>
+<a href="#home">Home</a>
+<a href="#acara">Acara</a>
+<a href="#" onclick="toggleMusic()">🎵</a>
 </div>
 
 <script>
-const target = new Date("2026-07-30T00:00:00").getTime();
+/* MUSIC */
+function playMusic(){musik.play()}
+function toggleMusic(){musik.paused?musik.play():musik.pause()}
+
+/* COUNTDOWN */
+const target=new Date("2026-07-30T08:00:00").getTime();
 setInterval(()=>{
-  const now = new Date().getTime();
-  let diff = target - now;
-  if(diff<0) diff=0;
-  document.getElementById("d").innerHTML=Math.floor(diff/(1000*60*60*24));
-  document.getElementById("h").innerHTML=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-  document.getElementById("m").innerHTML=Math.floor((diff%(1000*60*60))/(1000*60));
-  document.getElementById("s").innerHTML=Math.floor((diff%(1000*60))/1000);
+let now=new Date().getTime();
+let diff=target-now; if(diff<0) diff=0;
+d.innerHTML=Math.floor(diff/86400000);
+h.innerHTML=Math.floor(diff%86400000/3600000);
+m.innerHTML=Math.floor(diff%3600000/60000);
+s.innerHTML=Math.floor(diff%60000/1000);
 },1000);
 
-function playMusic(){document.getElementById("musik").play();}
-function toggleMusic(){const m=document.getElementById("musik"); m.paused?m.play():m.pause();}
-
-// FORM UCAPAN - hanya 1 kali per nama
-function submitForm(e){
-  e.preventDefault();
-  const nama = document.getElementById('nama').value.trim();
-  const ucapan = document.getElementById('ucapan').value.trim();
-  if(!nama || !ucapan) return;
-
-  const list = document.getElementById('ucapanList');
-  // cek nama sudah ada
-  const exists = Array.from(list.getElementsByClassName('ucapan-item'))
-                      .some(item => item.dataset.nama === nama.toLowerCase());
-  if(exists){
-    alert(`Maaf, nama "${nama}" sudah mengirim ucapan.`);
-    return;
-  }
-
-  // tambahkan ucapan baru
-  const div = document.createElement('div');
-  div.className = 'ucapan-item';
-  div.dataset.nama = nama.toLowerCase();
-  div.innerHTML = `<b>${nama}</b>: ${ucapan}`;
-  list.prepend(div);
-  document.getElementById('nama').value='';
-  document.getElementById('ucapan').value='';
-  div.scrollIntoView({behavior:"smooth"});
+/* UCAPAN 1 NAMA */
+function kirimUcapan(e){
+e.preventDefault();
+let n=nama.value.toLowerCase();
+if(localStorage.getItem(n)) return alert("Nama ini sudah mengirim ucapan");
+localStorage.setItem(n,ucapan.value);
+let div=document.createElement("div");
+div.className="ucapan-item";
+div.innerHTML="<b>"+nama.value+"</b><br>"+ucapan.value;
+list.prepend(div);
+nama.value=""; ucapan.value="";
 }
 </script>
 
