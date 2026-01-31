@@ -3,172 +3,240 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Undangan Pernikahan</title>
+<title>Undangan Pernikahan Efin & Clay</title>
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+:root{
+  --primary:#6b4a5a;
+  --bg:#f6efe8;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Crimson Text', serif;
+  background:var(--bg);
+  color:#3a2a2a;
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: #000;
+/* ===== SECTION ===== */
+section{
+  padding:50px 20px;
+  text-align:center;
+}
+h1,h2{
+  font-family:'Great Vibes', cursive;
+  color:var(--primary);
+}
+h1{font-size:52px;margin:0}
+h2{font-size:38px;margin-bottom:10px}
+p{line-height:1.8}
+
+/* ===== HOME / COVER ===== */
+.cover{
+  height:100vh;
+  background:
+    linear-gradient(
+      rgba(246,239,232,0.85),
+      rgba(246,239,232,0.85)
+    ),
+    url('https://i.imgur.com/QcZ6H3K.jpg');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-/* SLIDER */
-.slider {
-    display: flex;
-    width: 300vw;
-    height: 100vh;
-    transition: transform 0.7s ease;
+.frame{
+  border:3px solid var(--primary);
+  border-radius:60% 60% 40% 40%;
+  padding:45px 30px;
+  max-width:340px;
+  background:rgba(255,255,255,0.65);
 }
 
-.slide {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    animation: zoomBg 10s ease-in-out infinite;
+.cover p{
+  letter-spacing:2px;
+  font-size:14px;
+  text-transform:uppercase;
 }
 
-/* GANTI LINK GAMBAR DI SINI */
-.slide1 { background-image: url('bg.jpg'); }
-.slide2 { background-image: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70'); }
-.slide3 { background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9'); }
-
-/* MOTION BACKGROUND */
-@keyframes zoomBg {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+.cover h1{
+  font-size:56px;
+  text-shadow:2px 2px 8px rgba(0,0,0,0.15);
 }
 
-/* OVERLAY */
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
+.cover .tanggal{
+  font-size:18px;
+  margin-top:10px;
+  color:#5a3d49;
 }
 
-.overlay h1 {
-    font-size: 32px;
-    letter-spacing: 2px;
-    animation: fadeUp 1.2s ease both;
+/* ===== BUTTON ===== */
+.btn{
+  background:var(--primary);
+  color:#fff;
+  padding:14px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:25px;
 }
 
-.overlay p {
-    margin-top: 10px;
-    font-size: 16px;
-    animation: fadeUp 1.5s ease both;
+/* ===== CARD ===== */
+.card{
+  background:#fff;
+  border-radius:20px;
+  padding:30px;
+  margin:20px auto;
+  max-width:500px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
-.btn {
-    margin-top: 30px;
-    padding: 12px 30px;
-    border-radius: 30px;
-    background: #fff;
-    color: #000;
-    text-decoration: none;
-    font-weight: 600;
-    animation: fadeUp 1.8s ease both;
+/* ===== COUNTDOWN ===== */
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+.time{
+  background:var(--primary);
+  color:#fff;
+  padding:12px;
+  border-radius:12px;
+  min-width:70px;
 }
 
-/* TEXT MOTION */
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
+/* ===== FLOAT MENU ===== */
+.menu{
+  position:fixed;
+  bottom:15px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#fff;
+  display:flex;
+  gap:12px;
+  padding:10px 18px;
+  border-radius:30px;
+  box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+.menu a{
+  text-decoration:none;
+  color:var(--primary);
+  font-size:14px;
 }
 
-/* INDICATOR */
-.indicator {
-    position: fixed;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    color: #ccc;
-    font-size: 12px;
-}
+audio{display:none}
 </style>
 </head>
 
 <body>
 
-<div class="slider" id="slider">
+<!-- ===== MUSIK ===== -->
+<audio id="musik" loop>
+  <source src="https://cdn.pixabay.com/audio/2023/03/06/audio_8c96b60c77.mp3" type="audio/mpeg">
+</audio>
 
-    <div class="slide slide1">
-        <div class="overlay">
-            <h1>Efin & Clay</h1>
-            <p>Kami Mengundang Anda</p>
-        </div>
-    </div>
+<!-- ===== HOME ===== -->
+<section class="cover" id="home">
+  <div class="frame">
+    <p>Undangan Pernikahan</p>
+    <h1>Efin & Clay</h1>
+    <p class="tanggal">Mulud · Senin</p>
+    <a href="#acara" class="btn" onclick="playMusic()">Buka Undangan</a>
+  </div>
+</section>
 
-    <div class="slide slide2">
-        <div class="overlay">
-            <h1>Mulud</h1>
-            <p>Curahjati/p>
-        </div>
-    </div>
+<!-- ===== MEMPELAI ===== -->
+<section>
+  <h2>Mempelai</h2>
+  <div class="card">
+    <p><b>Efin</b></p>
+    <p>Putra dari keluarga tercinta</p>
+    <hr>
+    <p><b>Clay</b></p>
+    <p>Putri dari keluarga tercinta</p>
+  </div>
+</section>
 
-    <div class="slide slide3">
-        <div class="overlay">
-            <h1>Save The Date</h1>
-            <a href="#" class="btn">Buka Undangan</a>
-        </div>
-    </div>
+<!-- ===== ACARA ===== -->
+<section id="acara">
+  <h2>Acara Pernikahan</h2>
+  <div class="card">
+    <h3>Akad</h3>
+    <p>Hari : Selasa</p>
+    <p>Jam  : 00</p>
+    <p>Tempat : Curahjati</p>
+  </div>
 
+  <div class="card">
+    <h3>Resepsi</h3>
+    <p>Hari : ha</p>
+    <p>Jam  : 1</p>
+    <p>Tempat : Muncar</p>
+  </div>
+</section>
+
+<!-- ===== COUNTDOWN ===== -->
+<section>
+  <h2>Menuju Hari Bahagia</h2>
+  <div class="countdown">
+    <div class="time"><span id="d">0</span><br>Hari</div>
+    <div class="time"><span id="h">0</span><br>Jam</div>
+    <div class="time"><span id="m">0</span><br>Menit</div>
+    <div class="time"><span id="s">0</span><br>Detik</div>
+  </div>
+</section>
+
+<!-- ===== GIFT ===== -->
+<section>
+  <h2>Wedding Gift</h2>
+  <div class="card">
+    <p>Doa restu Anda merupakan karunia terindah bagi kami.</p>
+    <p>Apabila berkenan memberi tanda kasih, dapat melalui amplop digital.</p>
+    <p><b>(belum diisi)</b></p>
+  </div>
+</section>
+
+<!-- ===== PENUTUP ===== -->
+<section>
+  <h2>Terima Kasih</h2>
+  <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila berkenan hadir.</p>
+  <p>Wassalamu’alaikum Wr. Wb.</p>
+  <h2>Efin & Clay</h2>
+</section>
+
+<!-- ===== MENU ===== -->
+<div class="menu">
+  <a href="#home">Home</a>
+  <a href="#acara">Acara</a>
+  <a href="#" onclick="toggleMusic()">🎵</a>
 </div>
 
-<div class="indicator">Geser ➜</div>
-
 <script>
-let slider = document.getElementById('slider');
-let index = 0;
-let startX = 0;
-const totalSlide = 3;
-let autoPlay;
+const target = new Date("2026-07-30T00:00:00").getTime();
 
-function updateSlide() {
-    slider.style.transform = `translateX(-${index * 100}vw)`;
+setInterval(()=>{
+  const now = new Date().getTime();
+  let diff = target - now;
+  if(diff < 0) diff = 0;
+
+  document.getElementById("d").innerHTML = Math.floor(diff/(1000*60*60*24));
+  document.getElementById("h").innerHTML = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  document.getElementById("m").innerHTML = Math.floor((diff%(1000*60*60))/(1000*60));
+  document.getElementById("s").innerHTML = Math.floor((diff%(1000*60))/1000);
+},1000);
+
+function playMusic(){
+  document.getElementById("musik").play();
 }
-
-function startAutoPlay() {
-    autoPlay = setInterval(() => {
-        index = (index + 1) % totalSlide;
-        updateSlide();
-    }, 4000);
+function toggleMusic(){
+  const m = document.getElementById("musik");
+  m.paused ? m.play() : m.pause();
 }
-
-function stopAutoPlay() {
-    clearInterval(autoPlay);
-}
-
-document.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-    stopAutoPlay();
-});
-
-document.addEventListener('touchend', e => {
-    let endX = e.changedTouches[0].clientX;
-    if (startX - endX > 50 && index < totalSlide - 1) index++;
-    if (endX - startX > 50 && index > 0) index--;
-    updateSlide();
-    startAutoPlay();
-});
-
-startAutoPlay();
 </script>
 
 </body>
